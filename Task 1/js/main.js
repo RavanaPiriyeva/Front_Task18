@@ -5,9 +5,10 @@ let page = 1;
 let searchBtn = document.querySelector('.searchBtn');
 let list = document.getElementById('list')
 searchBtn.addEventListener('input',function(){
-   // alert('salam')
+   
+   list.style.display ="block"
    let oldLi = document.querySelectorAll('#list li')
-  
+ 
    
    oldLi.forEach(x=>{
        x.remove();
@@ -23,20 +24,16 @@ searchBtn.addEventListener('input',function(){
          
             let newLi = `<li class="list-group-item">${element.brand}--------${element.title}</li>`
             list.innerHTML+=newLi
-          //  console.log(element.title + '  '+element.brand)
         })
         
     })
     
     
 })
-// let oldLi = document.querySelectorAll('#list li')
-// if(searchBtn.value==""){
-//     oldLi.forEach(x=>{
-//         x.remove();
-//     })
-//    }
-//alert('salam')
+searchBtn.addEventListener('blur' , function(){
+    list.style.display = 'none'
+})
+
 
 if(wishCount){
     loadProducts(page)
